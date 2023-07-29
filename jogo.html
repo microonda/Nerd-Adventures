@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nerd Adventures</title>
+    <link rel="icon" href="imagens/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/jogo.css">
+</head>
+<body>
+    <p id="contador">0 Segundos</p>
+    <main id="tela">
+        <div id="camera">
+            <div id="nerd" class="nerd-parado"></div>
+        </div>
+
+        <div class="vidas">
+            <div class="coracao"></div>
+            <div class="coracao"></div>
+            <div class="coracao"></div>
+        </div>
+    </main>
+    <button class="botoes" onclick="spawnarInimigo();">Spawnar Inimigo</button>
+    <button class="botoes" onclick="spawnarBoss();">Spawnar Boss</button>
+    
+    <script src="js/jogo.js"></script>
+</body>
+</html>
