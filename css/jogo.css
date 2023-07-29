@@ -1,0 +1,195 @@
+body{
+    background-color: rgb(43, 43, 43);
+}
+
+#tela{
+    position: relative;
+    margin: auto;
+    background-image: url(../imagens/bg1.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    overflow: hidden;
+
+    height: 80vh;
+    width: 80vw;
+    border: 2px solid black;
+}
+@media (max-width: 500px) {
+    #tela{
+        background-image: url(../imagens/bg1mobile.png);
+        background-size: cover;
+    }    
+}
+
+#camera {
+    width: 350px; 
+    height: 300px;
+    position: absolute;
+    bottom: -5vh;
+    left: 50%;
+}
+
+.botoes{
+    cursor: pointer;
+
+    font-size: 18px;
+    color: white;
+    background-color: maroon;
+    margin: 30px;
+
+    padding: 1em;
+    border-radius: 10px;
+}
+.botoes:hover{
+    background-color: rgb(90, 0, 0);
+}
+@media(max-width: 500px){
+    .botoes{
+        font-size: 15px;
+        padding: 15px;
+        margin: 20px auto auto 25px;
+    }
+}
+
+/*Todos os personagens {comuns} são 32x32*/
+#nerd, .billyjoe{
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+
+    height: 8vh;
+    width: 8vh;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media(max-width: 500px){#nerd{height: 50px; width: 50px;}}
+
+.nerd-parado{
+    background-image: url(../imagens/nerd.gif);
+}
+
+.nerd-direita{
+    background-image: url(../imagens/nerd-direita.gif);
+}
+
+.nerd-esquerda{
+    background-image: url(../imagens/nerd-esquerda.gif);
+}
+
+.nerd-pulando{
+    background-image: url(../imagens/nerd.gif);
+    animation: nerd-pular 1500ms;
+}
+
+@keyframes nerd-pular {
+    0%{
+        bottom: 50%;
+    }
+    40%{
+        bottom: 100%;
+    }
+    80%{
+        bottom: 50%;
+    }
+}
+
+.vidas{
+    margin: 2em;
+    max-width: fit-content;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.coracao{
+    margin: 1em;
+    height: 8vh;
+    width: 5vw;
+
+    background-image: url(../imagens/coracao.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media(max-width: 500px){
+    .coracao{
+        margin: 5px;
+        height: 40px;
+        width: 45px;
+    }
+}
+
+.billyjoe{
+    bottom: 19vh;
+    background-image: url(../imagens/billyjoe.gif);
+}
+@media(max-width: 500px){.billyjoe{height: 50px; width: 50px;}}
+
+
+#boss{
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    transform: translate(-50%, 0%);
+
+    height: 250px;
+    width: 250px;
+
+    background-image: url(../imagens/pimentaoMaldito.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: deslizar 5s infinite ease;
+}
+@keyframes deslizar {
+    0%{
+        left: 50%;
+    }
+    30%{
+        left: 10%;
+    }
+    50%{
+        left: 50%;
+    }
+    80%{
+        left: 90%;
+    }
+    100%{
+        left: 50%;
+    }
+}
+@media(max-width: 500px){
+    #boss{height: 200px; width: 200px;}}
+
+.tiro{
+    background-color: red;
+    height: 30px;
+    width: 10px;
+
+    position: absolute;
+    left: 0;
+    animation: cair 2s ease;
+}
+@keyframes cair {
+    0%{
+        bottom: 60%;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+
+#contador{
+    font-size: 15px;
+    position: absolute;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media(max-width: 500px){
+    #contador{
+        bottom: 0;
+        right: 0;
+        margin: 30px;
+    }
+}

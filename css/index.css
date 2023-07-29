@@ -1,0 +1,86 @@
+body{ background-color: black;}
+
+main {
+    background-color: yellow;
+    border-radius: 10px;
+    position: relative;
+    padding: 50px;
+
+    height: 50vh;
+    width: 50vw;
+    color: black;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    font-size: 40px;
+    text-align: center;
+}
+
+#nome, #botao {
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    color: black;
+    font-size: 25px;
+
+    background-color: rgb(255, 237, 72);
+    border-radius: 10px;
+    width: 50%;
+    padding: 10px;
+}
+
+#botao{
+    top: 60%; 
+    font-weight: 500; 
+    letter-spacing: 2px;
+}
+#botao:hover{
+    cursor: pointer;
+    background-color: yellow;
+}
+
+#nome{
+    background-color: rgb(255, 255, 103);
+    color: black;
+    top: 40%;
+}
+#nome::placeholder{color: rgba(0, 0, 0, 0.315);}
+
+@media (max-width: 500px){
+    h1{font-size: 30px;}
+    #botao{
+        text-align: center;
+        width: 220px;
+        margin-top: 30px;
+    }
+    #nome{
+        width: 200px;
+        margin-top: 15px;
+    }
+    #nome::placeholder{font-size: 18px;}
+}
+
+footer{
+    display: block;
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    padding: 1px;
+    font-size: 20px;
+}
