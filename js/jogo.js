@@ -6,15 +6,17 @@ const tela = document.getElementById('tela');
 const elNerd = document.getElementById('nerd');
 const camera = document.getElementById('camera');
 const coracoes = document.querySelectorAll('.coracao');
-
 const largTela = window.innerWidth;
-const velocidade = 2;
 
+const ultimoClickDelay = 300; // delay do duplo click em ms
+let ultimoClick = 0;
+
+const velocidade = 2;
 const tempoDeInvencibilidade = 2 * 1000;
 const tempoDePulo = 1.2 * 1000;
 const intervaloSpawnBillyJoe = 5 * 1000;
 
-let xAtual = parseFloat(elNerd.style.left) || 0;
+let xAtual = largTela / 2 - 50;
 
 let segundos = 0;
 let estaPulando = false;
@@ -30,7 +32,8 @@ function apagarClasses(classe){
     const quantClasses = classe.classList.length;
     let i = 0;
     for(i=0; i < quantClasses; i++){
-        if (classe.classList.item(i) != 'nerd-pulando'){
+        if (classe.classList.item(i) != 'nerd-pulando' &&
+        classe.classList.item(i) != 'nerd-dano'){
             classe.classList.remove(classe.classList.item(i));
         }   
     }
@@ -53,7 +56,7 @@ function atualizarPosicao() {
         }
     }
     
-    camera.style.left = `${xAtual}px`;
+    nerd.style.left = `${xAtual}px`;
 }
 
 window.addEventListener('unload', salvarTempoNoLocalStorage);
@@ -121,6 +124,14 @@ requestAnimationFrame(() => {
           andarEsquerda();
           console.log('andou p esquerda');
         }
+
+        // verificar duplo clique
+        const tempoAtual = new Date().getTime();
+        if (tempoAtual - ultimoClick <= ultimoClickDelay) {
+            pular();
+            console.log('duplo clique (pular)');
+        }
+        ultimoClick = tempoAtual;
     });
 
     document.addEventListener('touchend', () => {
@@ -153,7 +164,7 @@ requestAnimationFrame(() => {
             return;
         }
         estaPulando = true;
-        apagarClasses(elNerd);
+        elNerd.classList.remove('nerd-pulando');
         elNerd.classList.add("nerd-pulando");
     
         setTimeout(() => {
@@ -180,10 +191,14 @@ function causarDanoAoNerd(){
     }
     coracoes[tamanho].remove();  // retirar coração
     --tamanho;
+    elNerd.classList.add('nerd-dano');
     invencivel = true;
 
     console.log('removi um coraçao');
-    setTimeout(() => {invencivel = false;}, tempoDeInvencibilidade);
+    setTimeout(() => {
+        invencivel = false;
+        elNerd.classList.remove('nerd-dano');
+    }, tempoDeInvencibilidade);
 }
 
 function verificarColisao(el1, el2){

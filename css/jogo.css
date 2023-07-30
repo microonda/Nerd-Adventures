@@ -21,14 +21,6 @@ body{
     }    
 }
 
-#camera {
-    width: 350px; 
-    height: 300px;
-    position: absolute;
-    bottom: -5vh;
-    left: 50%;
-}
-
 .botoes{
     cursor: pointer;
 
@@ -55,7 +47,7 @@ body{
 #nerd, .billyjoe{
     position: absolute;
     left: 50%;
-    bottom: 50%;
+    bottom: 10%;
     transform: translate(-50%, 50%);
 
     height: 8vh;
@@ -85,13 +77,13 @@ body{
 
 @keyframes nerd-pular {
     0%{
+        bottom: 10%;
+    }
+    40%, 45%{
         bottom: 50%;
     }
-    40%{
-        bottom: 100%;
-    }
-    80%{
-        bottom: 50%;
+    90%{
+        bottom: 10%;
     }
 }
 
@@ -121,8 +113,22 @@ body{
     }
 }
 
+.nerd-dano{
+    animation: nerd-dano 2000ms;
+}
+@keyframes nerd-dano{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 .billyjoe{
-    bottom: 19vh;
     background-image: url(../imagens/billyjoe.gif);
 }
 @media(max-width: 500px){.billyjoe{height: 50px; width: 50px;}}
