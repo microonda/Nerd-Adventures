@@ -242,14 +242,18 @@ function spawnarInimigo(){
 }
 
 function spawnarBoss(){
-
+    const larguraTela = window.innerWidth;
     const msc = new Audio('godofwar2.mp3');
     let pimentao = document.createElement('div');
     pimentao.id = 'boss';
 
     tela.appendChild(pimentao);
-    
-    tela.style.backgroundImage = 'url(bg2.jpg)';
+    if (larguraTela <= 500){
+        tela.style.backgroundImage = 'url(../imagens/bg2mobile.png)';
+    }
+    else{
+        tela.style.backgroundImage = 'url(../imagens/bg2.jpg)';
+    }
     document.body.style.backgroundColor = 'red';
     msc.play();
     

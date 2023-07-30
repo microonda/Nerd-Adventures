@@ -75,12 +75,3 @@ h1 {
     }
     #nome::placeholder{font-size: 18px;}
 }
-
-footer{
-    display: block;
-    background-color: yellow;
-    color: black;
-    text-align: center;
-    padding: 1px;
-    font-size: 20px;
-}
