@@ -243,13 +243,13 @@ function spawnarInimigo(){
 
 function spawnarBoss(){
 
-    const msc = new Audio('../imagens/godofwar2.mp3');
+    const msc = new Audio('godofwar2.mp3');
     let pimentao = document.createElement('div');
     pimentao.id = 'boss';
 
     tela.appendChild(pimentao);
     
-    tela.style.backgroundImage = 'url(../imagens/bg2.jpg)';
+    tela.style.backgroundImage = 'url(bg2.jpg)';
     document.body.style.backgroundColor = 'red';
     msc.play();
     
